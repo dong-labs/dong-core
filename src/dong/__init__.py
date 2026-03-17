@@ -11,7 +11,7 @@ dong-core: 咚咚家族核心库
 - testing: 测试工具
 """
 
-__version__ = "0.2.0"
+__version__ = "0.2.1"
 
 # 导出核心组件
 from dong.output.formatter import json_output
@@ -31,4 +31,8 @@ __all__ = [
     "NotFoundError",
     "ConflictError",
     "DateUtils",
+]
+lictError",
+    "DateUtils",
+    "Config",
 ]
