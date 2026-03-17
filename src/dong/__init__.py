@@ -24,6 +24,7 @@ from dong.errors.exceptions import (
 )
 from dong.dates.utils import DateUtils
 from dong.config import Config
+from dong.db import Database, SchemaManager
 
 __all__ = [
     "__version__",
@@ -34,4 +35,6 @@ __all__ = [
     "ConflictError",
     "DateUtils",
     "Config",
+    "Database",
+    "SchemaManager",
 ]
