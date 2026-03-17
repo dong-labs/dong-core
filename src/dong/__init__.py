@@ -9,9 +9,10 @@ dong-core: 咚咚家族核心库
 - errors: 统一错误类型
 - dates: 日期处理工具
 - testing: 测试工具
+- config: 配置管理
 """
 
-__version__ = "0.2.1"
+__version__ = "0.2.2"
 
 # 导出核心组件
 from dong.output.formatter import json_output
@@ -22,6 +23,7 @@ from dong.errors.exceptions import (
     ConflictError,
 )
 from dong.dates.utils import DateUtils
+from dong.config import Config
 
 __all__ = [
     "__version__",
@@ -30,9 +32,6 @@ __all__ = [
     "ValidationError",
     "NotFoundError",
     "ConflictError",
-    "DateUtils",
-]
-lictError",
     "DateUtils",
     "Config",
 ]
