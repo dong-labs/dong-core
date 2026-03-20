@@ -1,6 +1,8 @@
 """数据库连接管理基类
 
 提供统一的 SQLite 数据库管理。
+
+所有咚咚家族 CLI 共享 ~/.dong/ 目录。
 """
 
 import sqlite3
@@ -9,34 +11,37 @@ from typing import Any, Dict, Iterator, Optional
 from contextlib import contextmanager
 
 
+# 统一数据目录
+DONG_DIR = Path.home() / ".dong"
+
+
 class Database:
     """
     数据库管理基类
-    
+
     子类需要实现：
     - get_name(): 返回 CLI 名称
-    
-    数据库路径: ~/.<name>/<name>.db
+
+    数据库路径: ~/.dong/<name>.db
     """
-    
+
     _connection: Optional[sqlite3.Connection] = None
-    
+
     @classmethod
     def get_name(cls) -> str:
         """返回 CLI 名称（子类必须实现）"""
         raise NotImplementedError
-    
+
     @classmethod
-    def get_db_dir(cls) -> Path:
-        """获取数据库目录"""
-        name = cls.get_name()
-        return Path.home() / f".{name}"
-    
+    def get_dong_dir(cls) -> Path:
+        """获取咚咚家族统一目录"""
+        return DONG_DIR
+
     @classmethod
     def get_db_path(cls) -> Path:
         """获取数据库文件路径"""
         name = cls.get_name()
-        return cls.get_db_dir() / f"{name}.db"
+        return DONG_DIR / f"{name}.db"
     
     @classmethod
     def get_connection(cls) -> sqlite3.Connection:

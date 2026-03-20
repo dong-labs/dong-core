@@ -10,9 +10,11 @@ dong-core: 咚咚家族核心库
 - dates: 日期处理工具
 - testing: 测试工具
 - config: 配置管理
+
+v0.3.0: 统一使用 ~/.dong/ 目录
 """
 
-__version__ = "0.2.2"
+__version__ = "0.3.0"
 
 # 导出核心组件
 from dong.output.formatter import json_output
